@@ -17,7 +17,10 @@
     "@angular/core": "2.0.0",
     "@angular/forms": "2.0.0",
     "@angular/http": "2.0.0",
+<<<<<<< db3e60a25a2698ef8e5729d396c757bc212b9a32
     "@angular/material": "^2.0.0-alpha.9-3",
+=======
+>>>>>>> chore: initial commit from angular-cli
     "@angular/platform-browser": "2.0.0",
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/router": "3.0.0",
