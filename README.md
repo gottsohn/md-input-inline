@@ -52,6 +52,7 @@ The component is used as a tag like so:
 Here's a screenshot of how the module looks.
 
 **Editing the Phone number**
+
 ![Editing](./demo/assets/editing.png)
 
 **Viewing the Phone number**
