@@ -1,7 +1,7 @@
 # md-input-inline
 
 [![Build Status](https://travis-ci.org/gottsohn/md-input-inline.svg?branch=master)](https://travis-ci.org/gottsohn/md-input-inline)
-[![Typescript Version][typescript-image]][typescript-url]
+[![Typescript Version][ts-image]][ts-url]
 [![Angular Version][ng2-image]][ng2-url]
 [![Angular Material Version][ng-md-image]][ng-md-url]
 [![NPM Version][npm-image]][npm-url]
@@ -60,8 +60,8 @@ Here's a screenshot of how the module looks.
 
 
 
-[typescript-image]: https://img.shields.io/badge/Typescript-blue.svg
-[typescript-url]: https://www.typescriptlang.org
+[ts-image]: https://img.shields.io/badge/Typescript-2.0.0-blue.svg
+[ts-url]: https://www.typescriptlang.org
 [npm-image]: https://img.shields.io/npm/v/md-input-inline.svg
 [npm-url]: https://npmjs.org/package/md-input-inline
 [ng2-image]: https://img.shields.io/badge/Angular-2.0.0-red.svg
