@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font: 300 1em Roboto, "Avir Next", "Verdana";
+  color: #555;
+  background-color: #f3f3f3;
+}
