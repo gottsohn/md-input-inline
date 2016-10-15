@@ -1,7 +1,7 @@
 import {Component, Input, Output, forwardRef, EventEmitter, ElementRef,
   ViewChild, Renderer, OnInit} from '@angular/core';
 
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 const MD_INPUT_INLINE_CONTROL_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
@@ -20,8 +20,10 @@ export class MdInputInlineComponent implements ControlValueAccessor, OnInit {
 
   @ViewChild('mdInputInlineControl') mdInputInlineControl;
   @Output() public onSave: EventEmitter<any> = new EventEmitter();
-  @Input() label: string = "";
-  @Input() type: string = "text";
+  @Input() label: string = '';
+  @Input() type: string = 'text';
+  @Input() classNames: string = '';
+  @Input() title: string = 'Click here to edit';
 
   private _value: string = '';
   private preValue: string = '';
@@ -60,17 +62,6 @@ export class MdInputInlineComponent implements ControlValueAccessor, OnInit {
       .invokeElementMethod(this.mdInputInlineControl, 'focus', []));
   }
 
-  onSubmit(value) {
-    this.onSave.emit(value);
-    this.editing = false;
-  }
-
-  cancel(value: any) {
-    this._value = this.preValue;
-    this.editing = false;
-  }
-
   ngOnInit() {
-
   }
 }
