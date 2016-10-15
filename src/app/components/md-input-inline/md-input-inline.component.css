@@ -1,11 +1,11 @@
 a {
   text-decoration: none;
   color: #428bca;
-  border-bottom: dashed 1px #428bca;
+  border-bottom: dashed 1px #009090;
   cursor: pointer;
   line-height: 2;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin: 0;
+  cursor: help;
 }
 
 .inlineEditForm {
@@ -14,18 +14,8 @@ a {
   margin: 0;
 }
 
-#inlineEditWrapper {
-  display: inline-block;
-}
-
-.inlineEditForm input, select {
-  width: auto;
-  display: inline;
-}
-
-.editInvalid {
-  color: #a94442;
-  margin-bottom: 0;
+label.block {
+  display: block;
 }
 
 .error {
@@ -34,4 +24,8 @@ a {
 
 [hidden] {
   display: none;
+}
+
+md-input {
+  width: 100%;
 }
