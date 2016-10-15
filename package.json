@@ -21,7 +21,7 @@
     "inline",
     "edit"
   ],
-  "author": "Godson Ukpere <godson.ukpere@gmail.com>"
+  "author": "Godson Ukpere <godson.ukpere@gmail.com>",
   "private": false,
   "dependencies": {
     "@angular/common": "2.0.0",
