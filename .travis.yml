@@ -1,0 +1,11 @@
+sudo: required
+language: node_js
+node_js:
+  - "6"
+env:
+  NODE_ENV="development"
+install:
+  - npm install
+  - npm install -g angular-cli
+script:
+  - npm test
