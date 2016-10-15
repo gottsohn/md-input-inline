@@ -8,12 +8,6 @@ a {
   cursor: help;
 }
 
-.inlineEditForm {
-  display: inline-block;
-  white-space: nowrap;
-  margin: 0;
-}
-
 label.block {
   display: block;
 }
