@@ -1,1 +1,1 @@
-export * from './src/app/components/md-input-inline/md-input-inline.component';
+export * from './src/md-input-inline.module';
