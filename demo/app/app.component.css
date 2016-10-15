@@ -1,0 +1,31 @@
+.container {
+  margin: 0 auto;
+  max-width: 700px;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 5px 0 0;
+}
+
+.flex {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.flex.flex-44 {
+  width: 44%;
+  max-width: 44%;
+}
+
+.md-margin>div {
+  margin: 10px;
+}
+
+@media (max-width: 700px;
+) {
+  .flex.flex-44 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
