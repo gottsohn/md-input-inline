@@ -1,3 +1,39 @@
-<h1>
-  {{title}}
-</h1>
+<md-card class="container">
+  <md-card-content>
+    <h2 class="md-margin">Demo</h2>
+    <form #ngForm>
+      <div class="flex flex-44 md-margin">
+        <div>
+          <h4>Text field</h4>
+          <md-input-inline label="Full name" [(ngModel)]="user.name" name="user.name">
+          </md-input-inline>
+          <code>Result</code>
+          <br>
+          <code>{{user.name}}</code>
+        </div>
+      </div>
+
+      <div class="flex flex-44 md-margin">
+        <div>
+          <h4>Email field</h4>
+          <md-input-inline type="email" label="Email address" [(ngModel)]="user.email" name="user.email">
+          </md-input-inline>
+          <code>Result</code>
+          <br>
+          <code>{{user.email}}</code>
+        </div>
+      </div>
+
+      <div class="flex flex-44 md-margin">
+        <div>
+          <h4>Phone number field</h4>
+          <md-input-inline type="phone" label="Phone number" [(ngModel)]="user.phone" name="user.phone">
+          </md-input-inline>
+          <code>Result</code>
+          <br>
+          <code>{{user.phone}}</code>
+        </div>
+      </div>
+    </form>
+  </md-card-content>
+</md-card>
