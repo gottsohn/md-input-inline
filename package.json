@@ -1,6 +1,6 @@
 {
   "name": "md-input-inline",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -19,6 +19,8 @@
     "md-input",
     "angular 2",
     "inline",
+    "form",
+    "input",
     "edit"
   ],
   "author": "Godson Ukpere <godson.ukpere@gmail.com>",

@@ -1,9 +1,0 @@
-<div>
-  <div *ngIf="editing">
-    <md-input #mdInputInlineControl [class]="classNames" (blur)="editing = false;" [(ngModel)]="value" [placeholder]="label" [type]="type"></md-input>
-  </div>
-  <div *ngIf="!editing">
-    <label class="block">{{label}}</label>
-    <a [title]="title" (click)="edit(value)">{{value}}</a>
-  </div>
-</div>

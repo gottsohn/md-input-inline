@@ -1,0 +1,24 @@
+<div *ngIf="typeIndex === 0">
+  <div *ngIf="editing">
+    <md-input #inlineEditControl [required]="required" (blur)="editing = false;" [name]="value" [(ngModel)]="value" [placeholder]="label" [type]="type" class="form-control {{classNames}}"></md-input>
+  </div>
+  <div *ngIf="!editing">
+    <label class="block bold">{{label}}</label>
+    <div title="Click to edit" (click)="edit(value)" class="inline-edit">{{value}}&nbsp;</div>
+  </div>
+</div>
+
+<div *ngIf="typeIndex === 1">
+  <div *ngIf="editing">
+    <label class="block bold">{{label}}</label>
+    <select #inlineEditControl class="md-select" [required]="required" (blur)="editing = false;" [name]="value" [(ngModel)]="value">
+     <optgroup [label]="optgroupLabel || label">
+      <option *ngFor="let item of items; let index = index;" [value]="itemIdKey ? item[itemIdKey]: item" [label]="itemLabelKey ? item[itemLabelKey]: item ">{{itemLabelKey ? item[itemLabelKey]: item}}</option>
+     </optgroup>
+    </select>
+  </div>
+  <div *ngIf="!editing">
+    <label class="block bold">{{label}}</label>
+    <div title="Click to edit" (click)="edit(value)" class="inline-edit">{{getName()}}&nbsp;</div>
+  </div>
+</div>

@@ -18,8 +18,12 @@ h1, h2, h3, h4, h5 {
   max-width: 44%;
 }
 
-.md-margin>div {
+.md-margin {
   margin: 10px;
+}
+
+.md-padding {
+  padding: 10px;
 }
 
 @media (max-width: 700px;
