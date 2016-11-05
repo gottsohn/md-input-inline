@@ -1,4 +1,4 @@
-a {
+.inline-edit {
   text-decoration: none;
   color: #428bca;
   border-bottom: dashed 1px #009090;
@@ -22,4 +22,13 @@ label.block {
 
 md-input {
   width: 100%;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.md-select {
+  margin: 5px 0;
+  padding: 8px 5px;
 }

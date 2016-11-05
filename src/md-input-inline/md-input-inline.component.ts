@@ -22,13 +22,16 @@ export class MdInputInlineComponent implements ControlValueAccessor, OnInit {
   @Output() public onSave: EventEmitter<any> = new EventEmitter();
   @Input() label: string = '';
   @Input() type: string = 'text';
-  @Input() classNames: string = '';
-  @Input() title: string = 'Click here to edit';
+  @Input() required: boolean = false;
+  @Input() items: any[] = [];
+  @Input() itemIdKey: string;
+  @Input() itemLabelKey: string;
+  @Input() optgroupLabel: string;
 
   private _value: string = '';
   private preValue: string = '';
-  private editing: boolean = false;
-
+  editing: boolean = false;
+  private typeIndex: number = 0;
   public onChange: any = Function.prototype;
   public onTouched: any = Function.prototype;
 
@@ -38,6 +41,18 @@ export class MdInputInlineComponent implements ControlValueAccessor, OnInit {
     if (v !== this._value) {
       this._value = v;
       this.onChange(v);
+    }
+  }
+
+  getName(): string {
+    let item = this.items.filter((item, idx) => {
+      return this.itemIdKey ? item[this.itemIdKey] == this.value : this.value == item;
+    })[0];
+
+    if (item) {
+      return this.itemLabelKey ? item[this.itemLabelKey] : item;
+    } else {
+      return 'None';
     }
   }
 
@@ -57,11 +72,36 @@ export class MdInputInlineComponent implements ControlValueAccessor, OnInit {
   edit(value) {
     this.preValue = value;
     this.editing = true;
+    setTimeout(_ => {
+      if (this.typeIndex === 0) {
+        this._renderer.invokeElementMethod(this.mdInputInlineControl, 'focus', []);
+      }
+    });
+  }
 
-    setTimeout(_ => this._renderer
-      .invokeElementMethod(this.mdInputInlineControl, 'focus', []));
+  onSubmit(value) {
+    this.onSave.emit(value);
+    this.editing = false;
+  }
+
+  cancel(value: any) {
+    this._value = this.preValue;
+    this.editing = false;
   }
 
   ngOnInit() {
+    switch (this.type) {
+      case 'text':
+      case 'number':
+      case 'date':
+        this.typeIndex = 0;
+        break;
+      case 'select':
+        this.typeIndex = 1;
+        break;
+      default:
+        this.typeIndex = 0;
+        break;
+    }
   }
 }
