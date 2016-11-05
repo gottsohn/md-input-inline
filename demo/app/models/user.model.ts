@@ -1,3 +1,5 @@
 export class User {
-  constructor(private name: string, private email: string, private phone: string) { }
+  country: string = 'Nigeria';
+  constructor(private name: string, private email: string,
+    private phone: string) { }
 }
