@@ -8,7 +8,10 @@ import { User } from './models/user.model';
 })
 
 export class AppComponent {
-  user: User = new User('Godson', 'vor.nachname@gmail.com', '+234-809-613-2999');
+  user: User;
   countries: string[] = ['Ivory Coast', 'Kenya', 'Nigeria', 'Sengal'];
-  constructor() {}
+  constructor() {
+    this.user = new User('Godson', 'vor.nachname@gmail.com',
+      '+234-809-613-2999', 'Ein lang nachricht');
+  }
 }

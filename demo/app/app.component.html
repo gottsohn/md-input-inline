@@ -45,6 +45,15 @@
           <code>{{user.country}}</code>
         </div>
       </div>
+
+      <div class="md-padding">
+        <md-input-inline type="textarea" label="Notes" [(ngModel)]="user.notes" name="user.notes">
+        </md-input-inline>
+        <br>
+        <em>Binding</em>
+        <span> — </span>
+        <code>{{user.notes}}</code>
+      </div>
     </form>
   </md-card-content>
 </md-card>
