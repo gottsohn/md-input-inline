@@ -19,19 +19,30 @@ const MD_INPUT_INLINE_CONTROL_VALUE_ACCESSOR = {
 export class MdInputInlineComponent implements ControlValueAccessor, OnInit {
 
   @ViewChild('mdInputInlineControl') mdInputInlineControl;
+  @ViewChild('mdTextareaInlineControl') mdTextareaInlineControl;
+  @ViewChild('mdSelectInlineControl') mdSelectInlineControl;
   @Output() public onSave: EventEmitter<any> = new EventEmitter();
   @Input() label: string = '';
+  @Input() min: number = -9999;
+  @Input() max: number = 99999999;
+  @Input() minlength: number = 0;
+  @Input() maxlength: number = 2555;
   @Input() type: string = 'text';
   @Input() required: boolean = false;
   @Input() items: any[] = [];
+  @Input() focus: Function = _ => { };
+  @Input() blur: Function = _ => { };
+  @Input() pattern: string = '';
   @Input() itemIdKey: string;
   @Input() itemLabelKey: string;
+  @Input() tooltip: string = 'Click to edit';
   @Input() optgroupLabel: string;
 
   private _value: string = '';
   private preValue: string = '';
-  editing: boolean = false;
+  private editing: boolean = false;
   private typeIndex: number = 0;
+
   public onChange: any = Function.prototype;
   public onTouched: any = Function.prototype;
 
@@ -46,7 +57,8 @@ export class MdInputInlineComponent implements ControlValueAccessor, OnInit {
 
   getName(): string {
     let item = this.items.filter((item, idx) => {
-      return this.itemIdKey ? item[this.itemIdKey] == this.value : this.value == item;
+      return this.itemIdKey ? item[this.itemIdKey] == this.value :
+        this.value == item;
     })[0];
 
     if (item) {
@@ -69,12 +81,27 @@ export class MdInputInlineComponent implements ControlValueAccessor, OnInit {
   // Required forControlValueAccessor interface
   public registerOnTouched(fn: () => {}): void { this.onTouched = fn; };
 
+  onBlur($event: Event) {
+    this.blur();
+    this.editing = false;
+  }
+
   edit(value) {
     this.preValue = value;
     this.editing = true;
     setTimeout(_ => {
-      if (this.typeIndex === 0) {
-        this._renderer.invokeElementMethod(this.mdInputInlineControl, 'focus', []);
+      switch (this.typeIndex) {
+        case 0:
+          this._renderer.invokeElementMethod(
+            this.mdInputInlineControl, 'focus', []);
+          break;
+        case 1:
+          this._renderer.invokeElementMethod(
+            this.mdTextareaInlineControl, 'focus', []);
+          break;
+        case 2:
+          this.mdSelectInlineControl.nativeElement.focus();
+          break;
       }
     });
   }
@@ -91,17 +118,23 @@ export class MdInputInlineComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit() {
     switch (this.type) {
-      case 'text':
-      case 'number':
-      case 'date':
-        this.typeIndex = 0;
+      case 'textarea':
+        this.typeIndex = 1;
         break;
       case 'select':
-        this.typeIndex = 1;
+        this.typeIndex = 2;
         break;
       default:
         this.typeIndex = 0;
         break;
     }
+  }
+
+  getPreValue() {
+    return this.preValue;
+  }
+
+  getEditing() {
+    return this.editing;
   }
 }

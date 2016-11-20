@@ -5,8 +5,18 @@ import { MdInputInlineComponent } from './md-input-inline.component';
 
 describe('Component: MdInputInline', () => {
   let component: MdInputInlineComponent;
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        MdInputInlineComponent
+      ],
+    });
+  });
+
   it('should create an instance', () => {
-    component = new MdInputInlineComponent();
+    component = TestBed.createComponent(MdInputInlineComponent)
+      .debugElement.componentInstance;
+
     expect(component).toBeTruthy();
   });
 
@@ -23,7 +33,9 @@ describe('Component: MdInputInline', () => {
   });
 
   it('should call onChange when value changes', () => {
-    component = new MdInputInlineComponent();
+    component = TestBed.createComponent(MdInputInlineComponent)
+      .debugElement.componentInstance;
+
     spyOn(component, 'onChange');
     expect(component.onChange).not.toHaveBeenCalled();
     component.value = 'Godson';
@@ -32,12 +44,12 @@ describe('Component: MdInputInline', () => {
   });
 
   it('should start editing when .edit is called', () => {
-      expect(component.editing).toBeFalsy();
-      component.edit('godson');
-      expect(component.editing).toBeTruthy();
+    expect(component.getEditing()).toBeFalsy();
+    component.edit('godson');
+    expect(component.getEditing()).toBeTruthy();
   });
 
   it('should value and preValue should be different', () => {
-      expect(component.preValue).not.toBe(component.value);
+    expect(component.getPreValue()).not.toBe(component.value);
   });
 });

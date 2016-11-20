@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 
-import { MdInputInlineComponent } from './md-input-inline/md-input-inline.component';
+import { MdInputInlineComponent } from
+'./md-input-inline/md-input-inline.component';
 
 @NgModule({
   imports: [
