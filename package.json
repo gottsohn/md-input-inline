@@ -32,11 +32,12 @@
     "@angular/core": "~2.1.0",
     "@angular/forms": "~2.1.0",
     "@angular/http": "~2.1.0",
-    "@angular/material": "^2.0.0-alpha.9-3",
+    "@angular/material": "^2.0.0-alpha.10",
     "@angular/platform-browser": "~2.1.0",
     "@angular/platform-browser-dynamic": "~2.1.0",
     "@angular/router": "~3.1.0",
     "core-js": "^2.4.1",
+    "karma-phantomjs-launcher": "^1.0.2",
     "rxjs": "5.0.0-beta.12",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.6.23"
@@ -57,5 +58,7 @@
     "tslint": "3.13.0",
     "typescript": "2.0.2"
   },
-  "pre-commit": ["test"]
+  "pre-commit": [
+    "test"
+  ]
 }
