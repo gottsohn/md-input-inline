@@ -4,7 +4,7 @@
     <form #ngForm>
       <div class="flex flex-44 md-margin">
         <div>
-          <md-input-inline label="Full name" [(ngModel)]="user.name" name="user.name">
+          <md-input-inline label="Full name" [required]="true" [(ngModel)]="user.name" name="user.name">
           </md-input-inline>
           <br>
           <em>Binding</em>
@@ -15,7 +15,7 @@
 
       <div class="flex flex-44">
         <div class="md-padding">
-          <md-input-inline type="email" label="Email address" [(ngModel)]="user.email" name="user.email">
+          <md-input-inline type="email" [param]="user" [pattern]="emailRegExp" label="Email address" [(ngModel)]="user.email" name="user.email">
           </md-input-inline>
           <br>
           <em>Binding</em>
@@ -53,6 +53,10 @@
         <em>Binding</em>
         <span> — </span>
         <code>{{user.notes}}</code>
+      </div>
+      <br>
+      <div class="align right">
+        <button md-raised-button [disabled]="user.$error"><md-icon>{{user.$error ? 'cancel' : 'check_circle'}}</md-icon>Submit</button>
       </div>
     </form>
   </md-card-content>

@@ -1,11 +1,13 @@
 <div *ngIf="typeIndex === 0">
-  <div *ngIf="editing">
-    <md-input [pattern]="pattern" #mdInputInlineControl [min]="min" [max]="max" [minlength]="minlength" [maxlength]="maxlength" [min]="min" (focus)="focus($event)" [required]="required" (blur)="onBlur($event)" [name]="value" [(ngModel)]="value" [placeholder]="label"
-        [type]="type" class="form-control {{classNames}}"></md-input>
+  <div *ngIf="editing" class="{{hasError() ? 'error': ''}}">
+    <md-input #mdInputInlineControl [min]="min" [max]="max" [minlength]="minlength" [maxlength]="maxlength" [min]="min" (focus)="focus($event)" [required]="required" (blur)="onBlur($event)" [name]="value" [(ngModel)]="value" [type]="type" class="form-control {{classNames}}" [placeholder]="label">
+      <md-hint align="end"  *ngIf="hasError()">{{errorLabel}}</md-hint>
+    </md-input>
+    <div  [md-tooltip]="errorLabel" *ngIf="hasError()" class="flex small-box"></div>
   </div>
   <div *ngIf="!editing">
     <label class="block bold">{{label}}</label>
-    <div [md-tooltip]="tooltip" (click)="edit(value)" (focus)="edit(value);" tabindex="0" class="inline-edit">{{value}}&nbsp;</div>
+    <div [md-tooltip]="editLabel" (click)="edit(value)" (focus)="edit(value);" tabindex="0" class="inline-edit {{hasError() ? 'error': ''}}">{{value}}&nbsp;</div>
   </div>
 </div>
 
@@ -15,13 +17,14 @@
   </div>
   <div *ngIf="!editing">
     <label class="block bold">{{label}}</label>
-    <div class="inline-textarea" [md-tooltip]="tooltip" (click)="edit(value)" (focus)="edit(value);" tabindex="0" class="inline-edit">{{value}}&nbsp;</div>
+    <div class="inline-textarea" [md-tooltip]="editLabel" (click)="edit(value)" (focus)="edit(value);" tabindex="0" class="inline-edit">{{value}}&nbsp;</div>
   </div>
 </div>
 
 <div *ngIf="typeIndex === 2">
   <div *ngIf="editing">
-    <label class="select-label block">{{label}}</label>
+    <label class="select-label bold display-block">{{label}}</label>
+    <br>
     <select #mdSelectInlineControl (focus)="focus($event)" [required]="required" (blur)="onBlur($event)" [name]="value" [(ngModel)]="value">
      <optgroup [label]="optgroupLabel || label">
       <option *ngFor="let item of items; let index = index;" [value]="itemIdKey ? item[itemIdKey]: item" [label]="itemLabelKey ? item[itemLabelKey]: item ">{{itemLabelKey ? item[itemLabelKey]: item}}</option>
@@ -29,7 +32,7 @@
     </select>
   </div>
   <div *ngIf="!editing">
-    <label class="block">{{label}}</label>
-    <div [md-tooltip]="tooltip" (click)="edit(value)" (focus)="edit(value)" tabindex="0" class="inline-edit">{{getName()}}&nbsp;</div>
+    <label class="block bold">{{label}}</label>
+    <div [md-tooltip]="editLabel" (click)="edit(value)" (focus)="edit(value)" tabindex="0" class="inline-edit">{{getName()}}&nbsp;</div>
   </div>
 </div>

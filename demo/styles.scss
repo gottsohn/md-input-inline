@@ -1,0 +1,26 @@
+@import '~@angular/material/core/theming/all-theme';
+@include md-core();
+$primary: md-palette($md-teal);
+$accent: md-palette($md-orange);
+$theme: md-light-theme($primary, $accent);
+@include angular-material-theme($theme);
+
+body {
+  font: 100 1em Raleway, "Avir Next", Verdana;
+  color: #555;
+  background-color: #f3f3f3;
+}
+
+md-input,
+select,
+button
+textarea {
+  font-family: Raleway;
+}
+
+.material-icons {
+  height: 18px;
+  font-size: 16px;
+  width: 18px;
+  vertical-align: middle;
+}
